@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--主色调-->
+    <color name="colorPrimary">@color/color_5096F5</color>
+    <color name="colorPrimaryPressed">@color/color_5E98EE</color>
+    <!--generalColor（通用颜色值）-->
+    <color name="transparent">#00000000</color>
+    <color name="white">@color/color_FFFFFF</color>
+    <!--commonColor（常见颜色值）-->
+    <color name="color_5096F5">#5096F5</color>
+    <color name="color_5E98EE">#5E98EE</color>
+    <color name="color_F6F6F6">#F6F6F6</color>
+    <color name="color_FFFFFF">#FFFFFF</color>
+    <!--扫一扫-->
+    <color name="scan_viewfinder_mask">#60000000</color>
+    <color name="scan_result_view">#b0000000</color>
+    <color name="scan_possible_result_points">#c0ffbd21</color>
+    <color name="scan_status_text">@color/color_FFFFFF</color>
+    <color name="scan_frame">#318eff</color>
+</resources>
