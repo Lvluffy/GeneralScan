@@ -57,7 +57,7 @@ final class AutoFocusManager implements Camera.AutoFocusCallback {
             try {
                 newTask.execute();
                 outstandingTask = newTask;
-            } catch (RejectedExecutionException ree) {
+            } catch (RejectedExecutionException ignored) {
             }
         }
     }
@@ -95,7 +95,7 @@ final class AutoFocusManager implements Camera.AutoFocusCallback {
             cancelOutstandingTask();
             try {
                 camera.cancelAutoFocus();
-            } catch (RuntimeException re) {
+            } catch (RuntimeException ignored) {
             }
         }
     }
@@ -108,7 +108,7 @@ final class AutoFocusManager implements Camera.AutoFocusCallback {
         protected Object doInBackground(Object... voids) {
             try {
                 Thread.sleep(AUTO_FOCUS_INTERVAL_MS);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
             start();
             return null;

@@ -73,10 +73,10 @@ public abstract class BaseScanActivity extends AppCompatActivity implements Surf
         // 这是必须的，因为当我们第一次进入时需要显示帮助页，我们并不想打开Camera,测量屏幕大小
         // 当扫描框的尺寸不正确时会出现bug
         cameraManager = new CameraManager(getApplication());
-        viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
+        viewfinderView = findViewById(R.id.viewfinder_view);
         viewfinderView.setCameraManager(cameraManager);
         handler = null;
-        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
+        SurfaceView surfaceView = findViewById(R.id.preview_view);
         SurfaceHolder surfaceHolder = surfaceView.getHolder();
         if (hasSurface) {
             /*初始化Camera*/
@@ -95,7 +95,7 @@ public abstract class BaseScanActivity extends AppCompatActivity implements Surf
         }
         cameraManager.closeDriver();
         if (!hasSurface) {
-            SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
+            SurfaceView surfaceView = findViewById(R.id.preview_view);
             SurfaceHolder surfaceHolder = surfaceView.getHolder();
             surfaceHolder.removeCallback(this);
         }
@@ -152,7 +152,7 @@ public abstract class BaseScanActivity extends AppCompatActivity implements Surf
             if (handler == null) {
                 handler = new UploadScanHandler(this, null, null, null, cameraManager);
             }
-        } catch (Exception ioe) {
+        } catch (Exception ignored) {
         }
     }
 

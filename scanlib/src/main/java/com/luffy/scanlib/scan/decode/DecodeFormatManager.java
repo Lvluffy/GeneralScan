@@ -88,7 +88,7 @@ public final class DecodeFormatManager {
                     formats.add(BarcodeFormat.valueOf(format));
                 }
                 return formats;
-            } catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException ignored) {
             }
         }
         if (decodeMode != null) {

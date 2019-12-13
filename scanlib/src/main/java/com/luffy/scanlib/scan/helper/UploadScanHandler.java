@@ -125,7 +125,7 @@ public final class UploadScanHandler extends Handler {
         quit.sendToTarget();
         try {
             decodeThread.join(500L);
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
         }
         //确保不会发送任何队列消息
         removeMessages(R.id.decode_succeeded);

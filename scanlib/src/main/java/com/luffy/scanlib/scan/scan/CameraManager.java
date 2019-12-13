@@ -94,7 +94,7 @@ public final class CameraManager {
                 try {
                     theCamera.setParameters(parameters);
                     configManager.setDesiredCameraParameters(theCamera, true);
-                } catch (RuntimeException re2) {
+                } catch (RuntimeException ignored) {
                 }
             }
         }

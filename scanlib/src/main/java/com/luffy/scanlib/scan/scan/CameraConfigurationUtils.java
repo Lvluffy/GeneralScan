@@ -239,23 +239,20 @@ public final class CameraConfigurationUtils {
             }
 
             if (maybeFlippedWidth == screenResolution.x && maybeFlippedHeight == screenResolution.y) {
-                Point exactPoint = new Point(realWidth, realHeight);
-                return exactPoint;
+                return new Point(realWidth, realHeight);
             }
         }
 
         if (!supportedPreviewSizes.isEmpty()) {
             Camera.Size largestPreview = supportedPreviewSizes.get(0);
-            Point largestSize = new Point(largestPreview.width, largestPreview.height);
-            return largestSize;
+            return new Point(largestPreview.width, largestPreview.height);
         }
 
         Camera.Size defaultPreview = parameters.getPreviewSize();
         if (defaultPreview == null) {
             throw new IllegalStateException("Parameters contained no preview size!");
         }
-        Point defaultSize = new Point(defaultPreview.width, defaultPreview.height);
-        return defaultSize;
+        return new Point(defaultPreview.width, defaultPreview.height);
     }
 
     private static String findSettableValue(String name, Collection<String> supportedValues, String... desiredValues) {

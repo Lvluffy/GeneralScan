@@ -79,7 +79,7 @@ public final class DecodeThread extends Thread {
     public Handler getHandler() {
         try {
             handlerInitLatch.await();
-        } catch (InterruptedException ie) {
+        } catch (InterruptedException ignored) {
         }
         return handler;
     }
