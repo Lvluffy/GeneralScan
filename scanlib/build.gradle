@@ -45,7 +45,7 @@ dependencies {
     /**support*/
     compileOnly rootProject.ext.supportDepends["appcompat-v7"]
     /**扫码*/
-    compile files('libs/core-3.0.0.jar')
+    api files('libs/core-3.0.0.jar')
     /**通用工具*/
     compileOnly 'com.github.Lvluffy:GeneralUtils:1.1.0'
 }
