@@ -3,7 +3,6 @@ package com.luffy.scanlib.scan.decode;
 import android.content.Intent;
 import android.net.Uri;
 
-
 import com.google.zxing.BarcodeFormat;
 import com.luffy.scanlib.scan.helper.Intents;
 

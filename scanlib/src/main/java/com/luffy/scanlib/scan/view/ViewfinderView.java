@@ -12,7 +12,6 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-
 import com.google.zxing.ResultPoint;
 import com.luffy.scanlib.R;
 import com.luffy.scanlib.scan.scan.CameraManager;

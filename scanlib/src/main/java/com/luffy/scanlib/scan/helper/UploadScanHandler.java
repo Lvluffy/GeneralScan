@@ -13,7 +13,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Browser;
 
-
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
