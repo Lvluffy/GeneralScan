@@ -1,8 +1,11 @@
 package com.luffy.scanlib.ui;
 
 import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -12,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
-import com.luffy.generalutilslib.utils.PermissionUtils;
 import com.luffy.scanlib.R;
 import com.luffy.scanlib.scan.helper.UploadScanHandler;
 import com.luffy.scanlib.scan.scan.CameraManager;
@@ -24,6 +26,8 @@ import com.luffy.scanlib.scan.view.ViewfinderView;
  * @desc
  */
 public abstract class BaseScanActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+
+    private static final int REQUEST_CODE = 1;
 
     /*控件*/
     public ViewfinderView viewfinderView;
@@ -52,18 +56,24 @@ public abstract class BaseScanActivity extends AppCompatActivity implements Surf
                 clickBack();
             }
         });
-        // 权限判断
-        PermissionUtils.getInstance().meanWhileApplyMultiPermission(this, new PermissionUtils.MeanWhileApplyPermissionCallBack() {
-            @Override
-            public void onSucceed() {
-            }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CODE);
+        }
+    }
 
-            @Override
-            public void onFailure() {
-                Toast.makeText(BaseScanActivity.this, "权限授权被拒绝，无法扫码，请允许权限", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        }, Manifest.permission.CAMERA);
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (grantResults.length > 0) {
+                    if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                        Toast.makeText(BaseScanActivity.this, "权限授权被拒绝，无法扫码，请允许权限", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }
+                break;
+        }
     }
 
     @Override

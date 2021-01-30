@@ -45,8 +45,6 @@ dependencies {
     /**butterknife*/
     implementation 'com.jakewharton:butterknife:9.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
-    /**通用工具*/
-    implementation 'com.github.Lvluffy:GeneralUtils:1.1.0'
     /**richscanlib*/
     implementation project(':scanlib')
 }

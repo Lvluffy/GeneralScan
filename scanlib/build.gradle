@@ -44,6 +44,4 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     /**support*/
     compileOnly rootProject.supportDepends["appcompat-v7"]
-    /**通用工具*/
-    compileOnly 'com.github.Lvluffy:GeneralUtils:1.1.0'
 }
